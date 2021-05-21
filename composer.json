@@ -1,0 +1,12 @@
+{
+  "name": "jet-jet/drupal_helpcrunch",
+  "description": "Provides HelpCrunch functionality for Drupal site.",
+  "type": "drupal-module",
+  "authors": [
+    {
+      "name": "Valera Zamko",
+      "email": "valera.zamko@jet.dev"
+    }
+  ],
+  "require": {}
+}
