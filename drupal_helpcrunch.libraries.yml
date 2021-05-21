@@ -1,0 +1,8 @@
+drupal_helpcrunch_library:
+  version: 1.x
+  js:
+    js/helpcrunch.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings
