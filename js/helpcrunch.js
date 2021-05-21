@@ -5,6 +5,7 @@
 
       if (drupalSettings.drupal_helpcrunch) {
         var USER = drupalSettings.drupal_helpcrunch.helpCrunch.displayName;
+        var SETTINGS = drupalSettings.drupal_helpcrunch.helpCrunch.settings;
       }
 
       (function (w, d) {
@@ -28,12 +29,14 @@
         }
       })(window, document)
 
-      HelpCrunch('init', '', {
-        applicationId: '',
-        applicationSecret: ''
-      })
+      if (SETTINGS) {
+        HelpCrunch('init', SETTINGS.widget_name, {
+          applicationId: SETTINGS.application_id,
+          applicationSecret: SETTINGS.application_secret
+        })
 
-      HelpCrunch('showChatWidget');
+        HelpCrunch('showChatWidget');
+      }
 
       if (USER) {
         HelpCrunch('updateUser', USER);
