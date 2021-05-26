@@ -6,3 +6,9 @@ drupal_helpcrunch_library:
     - core/jquery
     - core/drupal
     - core/drupalSettings
+
+drupal_helpcrunch_styles:
+  version: 1.x
+  css:
+    theme:
+      css/styles.css: {}

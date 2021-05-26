@@ -1,0 +1,5 @@
+drupal_helpcrunch.settings:
+  title: HelpCrunch Settings
+  description: 'Configure HelpCrunch.'
+  route_name: drupal_helpcrunch.settings
+  parent: system.admin_config_system

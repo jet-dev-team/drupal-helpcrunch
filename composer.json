@@ -1,5 +1,5 @@
 {
-  "name": "jet-jet/drupal_helpcrunch",
+  "name": "jet-dev/drupal_helpcrunch",
   "description": "Provides HelpCrunch functionality for Drupal site.",
   "type": "drupal-module",
   "authors": [
