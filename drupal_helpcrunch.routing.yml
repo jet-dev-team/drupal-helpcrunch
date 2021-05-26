@@ -1,0 +1,7 @@
+drupal_helpcrunch.settings:
+  path: '/admin/config/helpcrunch-settings'
+  defaults:
+    _title: 'Settings'
+    _form: 'Drupal\drupal_helpcrunch\Form\SettingsForm'
+  requirements:
+    _permission: 'administer helpcrunch configuration'

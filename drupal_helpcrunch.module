@@ -1,0 +1,48 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for drupal_helpcrunch module.
+ */
+
+use Drupal\user\Entity\User;
+
+/**
+ * Implements hook_page_attachments().
+ */
+function drupal_helpcrunch_page_attachments(array &$attachments) {
+  if (!\Drupal::service('router.admin_context')->isAdminRoute()) {
+    $attachments['#attached']['library'][] = 'drupal_helpcrunch/drupal_helpcrunch_library';
+
+    $settings = \Drupal::configFactory()->get('drupal_helpcrunch.settings')->get('settings');
+
+    if ($settings) {
+      $attachments['#attached']['drupalSettings']['drupal_helpcrunch']['helpCrunch']['settings'] = $settings;
+    }
+
+    $user = User::load(\Drupal::currentUser()->id());
+
+    if ($user->isAuthenticated()) {
+      $user_first_name = $user->field_first_name->value;
+      $user_last_name = $user->field_last_name->value;
+
+      if ($user_first_name) {
+        $username = $user_first_name;
+
+        if ($user_last_name) {
+          $username .= ' ' . $user_last_name;
+        }
+      } else {
+        $username = $user->getDisplayName();
+      }
+
+      $user_data = [
+        'email' => $user->getEmail(),
+        'name' => $username,
+        'user_id' => $user->id(),
+      ];
+
+      $attachments['#attached']['drupalSettings']['drupal_helpcrunch']['helpCrunch']['displayName'] = $user_data;
+    }
+  }
+}
